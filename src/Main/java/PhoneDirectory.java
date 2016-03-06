@@ -14,7 +14,7 @@ public class PhoneDirectory {
 	public void addEntry(String name,String number){
 		Properties property = new Properties();
 		try{
-			OutputStream outputStream = new FileOutputStream("src/main/resources/phone.properties",true);
+			OutputStream outputStream = new FileOutputStream("src/Main/Resources/phone.properties",true);
 			property.setProperty(name,number);
 			property.store(outputStream,null);
 			outputStream.close();
@@ -32,7 +32,7 @@ public class PhoneDirectory {
 		String number="";
 		Properties property = new Properties();
 		try{
-			InputStream inputStream  = new FileInputStream("src/main/resources/phone.properties");
+			InputStream inputStream  = new FileInputStream("src/Main/Resources/phone.properties");
 			property.load(inputStream);
 			number = property.getProperty(name);
 			inputStream.close();			
@@ -51,7 +51,7 @@ public class PhoneDirectory {
 	public void deleteEntry(String name){
 		Properties property = new Properties();
 		try{
-			InputStream inputStream = new FileInputStream("src/resrc/java/phone.properties");  
+			InputStream inputStream = new FileInputStream("src/Main/Resources/phone.properties");  
 			property.load(inputStream);
 			String check = property.getProperty(name);
 			if(check==null){
@@ -60,13 +60,13 @@ public class PhoneDirectory {
 			}
 			property.remove(name);
 			inputStream.close();
-			OutputStream outputStream = new FileOutputStream("src/main/resources/phone.properties"); 
+			OutputStream outputStream = new FileOutputStream("src/Main/Resources/phone.properties"); 
 			property.store(outputStream , null);
 			outputStream.close();
-			System.out.println(name + "is deleted!");
+			System.out.println(name + " was deleted!");
 		}
 		catch(FileNotFoundException ex){
-			System.out.println("Unable to oepn file");
+			System.out.println("Unable to open file");
 		}
 		catch(IOException ex){
 			System.out.println("File not opened.");
@@ -80,7 +80,7 @@ public class PhoneDirectory {
 	public void updateEntry(String name,String number){
 		Properties property = new Properties();
 		try{		
-			InputStream inputStream = new FileInputStream("src/main/resources/phone.properties");
+			InputStream inputStream = new FileInputStream("src/Main/Resources/phone.properties");
 			property.load(inputStream);
 			String check = property.getProperty(name);
 			if(check==null){
@@ -94,7 +94,7 @@ public class PhoneDirectory {
 			outputStream.close();
 		}
 		catch(FileNotFoundException ex){
-			System.out.println("Unable to oepn file");
+			System.out.println("Unable to open file");
 		}
 		catch(IOException ex){
 			System.out.println("File not opened.");

@@ -9,7 +9,7 @@ public class Main {
 		 * number is for the number to be entered by user
 		 */
 		String name,number;
-		System.out.println("Welcome to Your Phone Directory\n\n");
+		System.out.println("Welcome to Your Phone Directory");
 		System.out.println("Press 1 to Add entry.\tPress 2 to Delete entry.\tPress 3 to Get number. \tPress 4 to Change contact");
 		int option;
 		PhoneDirectory object = new PhoneDirectory();
@@ -35,7 +35,7 @@ public class Main {
 			}
 		else if(option==3){
 				Scanner name_object= new Scanner(System.in);
-				System.out.println("Enter the name whose number is to be found : ");
+				System.out.println("Enter the name to search : ");
 				name = name_object.nextLine();
 				number=object.getNumber(name);
 				if(number.equals(null)){
