@@ -1,4 +1,4 @@
-package resrc.java;
+package Main.java;
 
 import java.io.*;
 import java.util.*;
@@ -6,7 +6,7 @@ import java.util.*;
 public class PhoneDirectory {
 	/* Class to hold the 4 functions needed to manage 
 	 * Data is stored as keys and values in a properties file.
-	 */
+	 * /
 	
 	/* Pre-Condition: Name and number is provided.
 	 * Post Condition: Passed Argument are Added to PhoneDirectory's file system.
@@ -51,7 +51,7 @@ public class PhoneDirectory {
 	public void deleteEntry(String name){
 		Properties property = new Properties();
 		try{
-			InputStream inputStream = new FileInputStream("src/main/resources/phone.properties");  
+			InputStream inputStream = new FileInputStream("src/resrc/java/phone.properties");  
 			property.load(inputStream);
 			String check = property.getProperty(name);
 			if(check==null){
