@@ -16,7 +16,6 @@ public class PhoneDirectory {
 	String name,number,location,middle;
 	HashMap<String,String> myHashMap = new HashMap<String,String>();
 	/**
-	 * 
 	 * @param string
 	 * @prama sep
 	 * PreCondition: the location of the string is passed
@@ -56,13 +55,11 @@ public class PhoneDirectory {
 		}
 	}
 	/**
-	 * This function is used to check is the file and the
-	 * hashmap is empty.
-	 * If empty, then delete, getting number and changing entry
-	 * is not possible.
+	 * Checks if the file and hashmap are empty.
+	 * If empty, fiel is invalid.
 	 * @return 
-	 * Pre Condition: The file exists.
-	 * Post Condition: Will return -1 if the file is empty or the hashmap is empty
+	 * Pre-Condition: The file exists.
+	 * Post Condition: Will return false if the file or the hashmap is empty.
 	 */
 	public boolean isValid(){
 		File inFile = new File(location);
@@ -86,12 +83,10 @@ public class PhoneDirectory {
 		return validity;
 	}
 	/**
-	 * 
 	 * @param name
 	 * @param number
-	 * Pre Condition: The name and number are passed in by the user to add
-	 * Post Condition: The name and number are added to the file 
-	 * under the condition that, the name is not present
+	 * Pre-Condition: The arguments passed are intended to be added.
+	 * Post Condition: If entry is unique, add to file and hashmap.
 	 */
 	public void addEntry(String name,String number){
 		String num = myHashMap.get(name);
@@ -104,9 +99,8 @@ public class PhoneDirectory {
 		}
 	}
 	/**
-	 * 
 	 * @param name
-	 * Pre Condition: The name is provided by the user.
+	 * Pre-Condition: The name is passed as an arguement.
 	 * Post Condition: The name of the user is deleted from the Directory, if present. 
 	 */
 	public void DeleteEntry(String name){
@@ -120,27 +114,25 @@ public class PhoneDirectory {
 		
 	}
 	/**
-	 * 
 	 * @param name
 	 * @return
-	 * Pre Condition: The name is passed in by the user.
-	 * Post Condition: The number is returned, if present. If not present, then NULL is returned.
+	 * Pre Condition: The name to search is passed an argument.
+	 * Post Condition: If name is present, return user. Else, return NUll.
 	 */
 	public String getNumber(String name){
-		String foundNumber="";
-		foundNumber=myHashMap.get(name);
-		if(foundNumber==null){
+		String foundNumber = "";
+		foundNumber = myHashMap.get(name);
+		if(foundNumber == null){
 			System.out.println("ERROR!! The name is not in directory");
 		}
 		return foundNumber;
 	}
 	
 	/**
-	 * 
 	 * @param name
 	 * @param number
-	 * Pre condition: The name and number are passed in by the user
-	 * Post condition: The name and number are modified, if present.
+	 * Pre-condition: The name and number as passed as an argument.
+	 * Post condition: if passed name exists, the number is updated.
 	 */
 	public void changeEntry(String name,String number){
 		String isValid=myHashMap.get(name);
@@ -154,7 +146,6 @@ public class PhoneDirectory {
 	}
 	/**
 	 * This will write to the file.
-	 * This clears the file and writes all the key and values of hashmap to the file.
 	 */
 	public void write(){
 		File fileName= new File(location);
