@@ -26,9 +26,8 @@ public class PhoneDirectory {
 	public PhoneDirectory(String file_path, String delim){
 		location = file_path;
 		/**
-		 * Because "|" is a control character, the compliler won't
-		 * understand to split "|". So we pass in "\" which also has
-		 * similar problem. Hence, we are passing "\\|"
+		 * there are some compiler issues with using | for delimiter
+		 * temp="\\" is a simple workaround
 		 */
 		String temp ="\\";
 		temp = temp.concat(delim);
@@ -75,7 +74,7 @@ public class PhoneDirectory {
 			bufferedReader.close();
 		}
 		catch(FileNotFoundException ex){
-			System.out.println("Unable to oepn file");
+			System.out.println("Unable to open file");
 		}
 		catch(IOException ex){
 			System.out.println("File not opened.");
@@ -163,7 +162,7 @@ public class PhoneDirectory {
 			bufferedWriter.close();
 		}
 		catch(FileNotFoundException ex){
-			System.out.println("Unable to oepn file");
+			System.out.println("Unable to open file");
 		}
 		catch(IOException ex){
 			System.out.println("File not opened.");

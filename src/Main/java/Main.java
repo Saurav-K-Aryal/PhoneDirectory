@@ -12,7 +12,7 @@ public class Main {
 		System.out.println("Welcome to Your Phone Directory");
 		System.out.println("Press 1 to Add entry.\tPress 2 to Delete entry.\tPress 3 to Get number. \tPress 4 to Change contact");
 		int option;
-		PhoneDirectory object = new PhoneDirectory("/", "|");
+		PhoneDirectory object = new PhoneDirectory("infile.txt", "|");
 
 		System.out.println("Enter your option : ");
 		Scanner in_stream = new Scanner(System.in);
