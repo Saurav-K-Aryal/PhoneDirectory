@@ -12,7 +12,7 @@ public class Main {
 		System.out.println("Welcome to Your Phone Directory");
 		System.out.println("Press 1 to Add entry.\tPress 2 to Delete entry.\tPress 3 to Get number. \tPress 4 to Change contact");
 		int option;
-		PhoneDirectory object = new PhoneDirectory();
+		PhoneDirectory object = new PhoneDirectory("/", "|");
 
 		System.out.println("Enter your option : ");
 		Scanner in_stream = new Scanner(System.in);
@@ -31,7 +31,7 @@ public class Main {
 					Scanner name_object= new Scanner(System.in);
 					System.out.println("Enter the name to be deleted : ");
 					name=name_object.nextLine();
-					object.deleteEntry(name);
+					object.DeleteEntry(name);
 			}
 		else if(option==3){
 				Scanner name_object= new Scanner(System.in);
@@ -52,7 +52,7 @@ public class Main {
 				name=name_object.nextLine();
 				System.out.println("Enter the number to be updated : ");
 				number=number_object.nextLine();
-				object.updateEntry(name, number);						
+				object.changeEntry(name, number);						
 			}
 		else{
 			System.out.println("Wrong option entered");
